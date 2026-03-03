@@ -18,10 +18,10 @@ bool button_State(void)
 {
     if (GPIOC->IDR & BTN_PIN) 
     {
-        return false
+        return false;
     }
     else 
     {
-        return true
+        return true;
     }
 }

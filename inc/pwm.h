@@ -3,6 +3,6 @@
 
 #include "stm32f4xx.h"
 
-void PWM_Init(void)
+void PWM_Init(void);
 
 #endif
