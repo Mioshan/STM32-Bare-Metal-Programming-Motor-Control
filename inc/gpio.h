@@ -2,9 +2,9 @@
 #define GPIO_H_
 
 #include "stm32f4xx.h"
+#include <stdbool.h>
 
-void GPIO_Init(void)
-{
-    /*Initiate a PC13 pin for simple set/clear check*/
-}
+void GPIO_Init(void);
+bool button_State(void);
+
 #endif 
