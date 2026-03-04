@@ -1,6 +1,6 @@
 ENTRY(Reset_Handler)
 
-_estack = ORIGIN(SRAM) + LENGTH(SRAM)
+_estack = ORIGIN(SRAM) + LENGTH(SRAM);
 
 MEMORY
 {
@@ -43,7 +43,7 @@ SECTIONS
         . = ALIGN(4);
         _sbss = .;
         *(.bss)
-        *(.bss)*
+        *(.bss*)
         *(COMMON)
         . = ALIGN(4);
         _ebss = .;

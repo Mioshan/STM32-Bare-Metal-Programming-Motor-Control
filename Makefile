@@ -1,5 +1,5 @@
 # Project
-TARGET = flicker
+TARGET = Motor_Control
 MCU    = cortex-m4
 
 # Folders
