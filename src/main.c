@@ -1,19 +1,26 @@
 #include "pwm.h"
+#include "gpio.h"
+
+bool btn_state;
 
 int main(void)
 {
     PWM_Init();
+    GPIO_Init();
+
+    set_duty_cycle(0);
 
     while (1)
     {
-        // Optional fade loop
-        for (int d = 0; d <= 100; d += 1) {
-            set_duty_cycle(d);
-            for (volatile uint32_t i = 0; i < 20000; i++);
+        btn_state = button_State();
+
+        if (btn_state)
+        {
+            set_duty_cycle(80);
         }
-        for (int d = 100; d >= 0; d -= 1) {
-            set_duty_cycle(d);
-            for (volatile uint32_t i = 0; i < 20000; i++);
+        else 
+        {
+            set_duty_cycle(0);
         }
     }
 }

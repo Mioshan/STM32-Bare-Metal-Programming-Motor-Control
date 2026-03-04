@@ -9,7 +9,7 @@ void GPIO_Init(void)
     /*Enable GPIO Port C clock*/
     RCC->AHB1ENR |= GPIOCEN;
     
-    /*Configure PA13 as an output pin*/
+    /*Configure PC13 as an output pin*/
     GPIOC->MODER &= ~(1U<<26);
     GPIOC->MODER &= ~(1U<<27);
 }
