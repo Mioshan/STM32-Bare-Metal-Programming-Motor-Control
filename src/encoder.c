@@ -9,6 +9,7 @@
 
 #define PRESCALER   0
 #define RELOAD      0xFFFF     /* TIM3 is 16-bit */
+#define COUNTS_PER_REV 3210.0f
 
 void Encoder_init(void) 
 {
@@ -39,6 +40,8 @@ void Encoder_init(void)
     TIM3->CCMR1 |=  (1U << 0);
     TIM3->CCMR1 |=  (1U << 8);
 
+    TIM3->CCMR1 |= (0x3U << 4) | (0x3U << 12);   // simple filter
+
     /*Set Encoder Mode 3 (SMS = 011)*/
     TIM3->SMCR &= ~(7U << 0);
     TIM3->SMCR |=  (1U << 0);
@@ -58,3 +61,9 @@ void Encoder_init(void)
     TIM3->CR1 |= ARPE;
     TIM3->CR1 |= CEN;
 }
+
+float Encoder_Read_Angle(void)
+{
+    return (360.0f / COUNTS_PER_REV)* (float)TIM3->CNT;
+}
+

@@ -1,26 +1,13 @@
-#include "pwm.h"
-#include "gpio.h"
-
-bool btn_state;
+#include "encoder.h"
 
 int main(void)
 {
-    PWM_Init();
-    GPIO_Init();
+    Encoder_init();
+    float s;
 
-    set_duty_cycle(0);
-
-    while (1)
+    while(1)
     {
-        btn_state = button_State();
-
-        if (btn_state)
-        {
-            set_duty_cycle(80);
-        }
-        else 
-        {
-            set_duty_cycle(0);
-        }
+        s = Encoder_Read_Angle();
+        int16_t angle = (int16_t)s;
     }
 }
