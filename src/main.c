@@ -1,13 +1,15 @@
-#include "encoder.h"
+#include "motor_control.h"
 
 int main(void)
 {
-    Encoder_init();
+    Encoder_start();
     float s;
-
+    int32_t sush;
     while(1)
     {
-        s = Encoder_Read_Angle();
-        int16_t angle = (int16_t)s;
+        s = Encoder_Read();
+
+        sush = Encoder_Angle_Degrees(s);
+        sush++;
     }
 }
