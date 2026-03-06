@@ -8,6 +8,4 @@ void Motor_init(void);
 void Encoder_start(void);
 void motor_PWM(uint8_t duty);
 float Encoder_Read(void);
-int32_t Encoder_Angle_Degrees(float val);
-
 #endif
